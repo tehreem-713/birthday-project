@@ -1,0 +1,506 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #EAF4FF;
+    min-height: 100vh;
+}
+.page {
+    min-height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.page.active {
+    display: flex;
+}
+.password-container {
+    width: 850px;
+    min-height: auto;
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(52, 79, 112, 0.12);
+}
+.password-left {
+    width: 50%;
+    background-image: url("bunny.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.password-right {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.password-decoration {
+    width: 100%;
+    height: 90px;
+    background-image: url("bow.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% auto;
+    margin-bottom: 15px;
+}
+#password-heading {
+    font-size: 32px;
+    color: #344F70;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+#password-subtitle {
+    font-size: 14px;
+    color: #91BDE8;
+    margin-bottom: 25px;
+}
+#password-display {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.digit-box {
+    width: 48px;
+    height: 52px;
+    border: 2px solid #B8D8F8;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    color: #344F70;
+    background-color: #EAF4FF;
+}
+#keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-width: 250px;
+}
+
+.key {
+    height: 48px;
+    border: none;
+    border-radius: 12px;
+    background-color: #D6E9FF;
+    color: #344F70;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.key:hover {
+    background-color: #B8D8F8;
+}
+.delete-key {
+    background-color: #EAF4FF;
+    font-size: 20px;
+}
+
+.clear-key {
+    background-color: #648DBB;
+    color: white;
+    font-size: 14px;
+}
+
+.delete-key:hover {
+    background-color: #D6E9FF;
+}
+
+.clear-key:hover {
+    background-color: #5079A5;
+}
+.key:active {
+    transform: scale(0.92);
+}
+#password-error {
+    color: #D66B83;
+    font-size: 13px;
+    margin-top: 12px;
+    min-height: 18px;
+}
+.question-container {
+    width: 600px;
+    padding: 50px 30px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(52, 79, 112, 0.12);
+    text-align: center;
+}
+
+#question-heading {
+    font-size: 38px;
+    color: #344F70;
+    margin-bottom: 15px;
+}
+
+#question-text {
+    font-size: 16px;
+    color: #648DBB;
+    margin-bottom: 30px;
+}
+
+.question-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.answer-btn {
+    padding: 12px 35px;
+    border: none;
+    border-radius: 12px;
+    background-color: #648DBB;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.answer-btn:hover {
+    background-color: #5079A5;
+}
+
+.answer-btn:active {
+    transform: scale(0.94);
+}
+#question-page {
+    position: relative;
+    overflow: hidden;
+}
+
+.question-container {
+    position: relative;
+    width: 600px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(52, 79, 112, 0.12);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.question-bow {
+    width: 240px;
+    height: 85px;
+    margin-bottom: 0;
+    background-image: url("bow.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.question-bunny {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: -65px;
+    bottom: -65px;
+    background-image: url("bunny2.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 3;
+}
+.birthday-container {
+    width: 650px;
+    padding: 50px 35px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(52, 79, 112, 0.12);
+    text-align: center;
+    position: relative;
+}
+
+#birthday-heading {
+    font-size: 42px;
+    color: #344F70;
+    margin-bottom: 5px;
+}
+
+#birthday-message {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #648DBB;
+     margin-bottom: 5px;
+}
+
+.next-btn {
+    padding: 13px 30px;
+    border: none;
+    border-radius: 12px;
+    background-color: #648DBB;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.next-btn:hover {
+    background-color: #5079A5;
+}
+
+.next-btn:active {
+    transform: scale(0.94);
+}
+.birthday-cake {
+    width: 260px;
+    height: 150px;
+    margin: -10px auto -5px;
+    background-image: url("cake.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.birthday-bow {
+    position: absolute;
+    width: 65px;
+    height: 55px;
+    background-image: url("bow2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.left-bow {
+    top: -25px;
+    left: -25px;
+}
+
+.right-bow {
+    top: -25px;
+    right: -25px;
+    transform: scaleX(-1);
+}
+
+.birthday-container {
+    position: relative !important;
+}
+
+.personal-content {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+.personal-container {
+    width: 750px;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    padding: 35px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(52, 79, 112, 0.12);
+}
+
+.personal-image {
+    width: 45%;
+    min-height: 320px;
+    background-image: url("taekook.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 18px;
+}
+
+#personal-heading {
+    font-size: 25px;
+    color: #344F70;
+    text-align: center;
+    margin-bottom: 12px;
+}
+#personal-message {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #648DBB;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Tablets and smaller laptops */
+@media (max-width: 900px) {
+
+    .password-container {
+        width: 90%;
+    }
+
+    .question-container {
+        width: 80%;
+    }
+
+    .birthday-container {
+        width: 85%;
+    }
+
+    .personal-container {
+        width: 90%;
+    }
+}
+
+/* Phones and small tablets */
+@media (max-width: 600px) {
+
+    .page {
+        padding: 15px;
+        min-height: 100vh;
+        box-sizing: border-box;
+    }
+
+    /* Password page */
+    .password-container {
+        width: 100%;
+        min-height: auto;
+        flex-direction: column;
+    }
+
+    .password-left {
+        width: 100%;
+        height: 130px;
+    }
+
+    .password-right {
+        width: 100%;
+        padding: 10px 15px;
+        box-sizing: border-box;
+    }
+
+    #password-heading {
+        font-size: 24px;
+    }
+
+    #keypad {
+        max-width: 280px;
+    }
+
+    /* Question page */
+    .question-container {
+        width: 100%;
+        padding: 25px 15px;
+        box-sizing: border-box;
+    }
+
+    #question-heading {
+        font-size: 30px;
+    }
+
+    .question-bunny {
+        width: 140px;
+        height: 140px;
+        right: -15px;
+        bottom: -30px;
+    }
+
+    /* Birthday page */
+    .birthday-container {
+        width: 100%;
+        padding: 45px 15px;
+        box-sizing: border-box;
+    }
+
+    #birthday-heading {
+        font-size: clamp(25px, 7vw, 34px);
+    }
+
+    #birthday-message {
+        font-size: 15px;
+    }
+
+    .birthday-cake {
+        width: 220px;
+        max-width: 100%;
+    }
+
+    /* Personal page */
+    .personal-container {
+        width: 100%;
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+        box-sizing: border-box;
+    }
+
+    .personal-image {
+        width: 100%;
+        min-height: 250px;
+    }
+
+    .personal-content {
+        width: 100%;
+    }
+
+    #personal-heading {
+        margin-top: 0;
+        font-size: 23px;
+    }
+
+    #personal-message {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+
+    .password-left {
+        height: 160px;
+    }
+
+    .password-right {
+        padding: 15px 10px;
+    }
+
+    .question-container,
+    .birthday-container {
+        padding: 25px 12px;
+    }
+
+    .personal-container {
+        padding: 15px;
+    }
+
+    .personal-image {
+        min-height: 210px;
+    }
+
+    .next-btn,
+    .answer-btn {
+        padding: 11px 18px;
+        font-size: 13px;
+    }
+}
+
+/* Short screens */
+@media (max-height: 650px) {
+
+    .page {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .password-left {
+        min-height: 130px;
+    }
+}
